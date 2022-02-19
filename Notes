@@ -5,3 +5,22 @@ npm install --save react-router-dom
 import {BrowserRouter, Route} from 'react-router-dom'
 
 https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md
+
+
+npm install --save react react-redux
+
+1) Create actions folder and reducers folder with index.js + add a dummy reducer
+2) import Provider from react-redux, createStore from redux and reducers from folder
+3) store = createStore(reducers)
+4) Wrap App in Provider passing store={store}
+
+5) Create action creators in seperate file
+6) import connect from react-redux and the action creators to the relevent file
+7) at the bottom add -- connect(null, { actionCreator1, actionCreator2 })(fileName)
+
+8) create named reducer / reducers and pass them to reducers/index
+9) import in index and use combineReducers({name1: reducer1, name2: reducer2})
+
+10) Add mapStateToProps to file and return relevent state
+11) add mapStateToProps to connect instead of null (step 7)
+
