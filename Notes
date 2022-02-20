@@ -6,6 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 
 https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md
 
+http://localhost:3000/?debug_session=<session_name>
 
 npm install --save react react-redux
 
