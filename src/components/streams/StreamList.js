@@ -28,14 +28,15 @@ class StreamList extends React.Component {
 
 	renderList() {
 		return this.props.streams.map((stream) => {
+			if(stream.userId !== this.props.currentUserId && this.props.flip){
+				return null
+			}
 			return (
 				<div className="item" key={stream.id}>
 					{this.renderAdmin(stream)}
 					<i className="large middle aligned icon camera" />
 					<div className="content">
-						<Link to={`/streams/${stream.id}`} >
-						{stream.title}
-						</Link>
+						<Link to={`/streams/${stream.id}`}>{stream.title}</Link>
 						<div className="description">{stream.description}</div>
 					</div>
 				</div>
@@ -57,7 +58,10 @@ class StreamList extends React.Component {
 
 	render() {
 		return (
-			<div className="">
+			<div className="items">
+				<button onClick={() => !this.props.flip} class="circular ui icon button right floated">
+					<i class="icon user circle"></i>
+				</button>
 				<h2>Streams</h2>
 				<div className="ui celled list">{this.renderList()}</div>
 				{this.renderCreate()}
@@ -72,6 +76,7 @@ const mapStateToProps = (state) => {
 		streams: Object.values(state.streams),
 		currentUserId: state.auth.userId,
 		isSignedIn: state.auth.isSignedIn,
+		flip: false
 	}
 }
 //connecting it up
